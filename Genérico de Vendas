@@ -1,0 +1,366 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+
+
+ ****PROGRAMA GENÉRICO DE VENDAS NÃO FUNCIONAL****
+
+
+*/
+
+int main(void) {
+
+  int menuVendas, qntcancelar, regVendas, qntvendido, caixa, dinheiro, dividas, menuobs, menuEstq, menutemp;
+
+  char prodvendido[20], prodcancelar[20], obs[200];
+
+  float precovendido;
+
+  int 
+  sair = 0, /* ESSA VARIAVEL DEVE SER USADA PARA FAZER O DO WHILE Q FAZ ESSE MENU VOLTAR PARA O MENU PRINCIPAL DO PROGRAMA */
+  sair1 = 0,
+  sair2 = 0,
+  sair3 = 0,
+  sair4 = 0,
+  sair5 = 0,
+  sair6 = 0,
+  sair7 = 0,
+  sair8 = 0,
+  sair9 = 0,
+  sair10 = 0;
+
+  /* MENU PRINCIPAL DE VENDAS */
+
+    printf("***********VENDAS**********");
+    printf("\n\n\n\n");
+    printf("1. Registro e Cancelamento de Vendas\n");
+    printf("2. Fechamento de Caixa\n");
+    printf("3. Estoque\n");
+    printf("4. Encomendas\n");
+    printf("5. Balanço Temporal\n");
+    printf("6. Voltar\n");
+    printf("\n\n");
+
+    scanf("%i", &menuVendas);
+
+    printf("\n\n");
+
+    switch (menuVendas) {
+
+      case 1 :
+
+      do {
+
+      /* MENU DE REGISTRO E CANCELAMENTO DE VENDA */
+
+      printf("**********VENDAS**********");
+      printf("\n\n");
+      printf("**********REGISTRO E CANCELAMENTO DE VENDAS**********");
+      printf("\n\n\n\n");
+
+
+      printf("1. Registrar Venda\n");
+      printf("2. Cancelar Venda\n");
+      printf("3. Voltar");
+      printf("\n\n");
+
+      scanf("%i", &regVendas);
+
+      printf("\n\n");
+
+      if (regVendas == 1) {
+        printf("Digite o produto:\n");
+        scanf("%s", prodvendido);
+        printf("\n\n");
+
+        printf("Digite a quantidade:\n");
+        scanf("%i", &qntvendido);
+        printf("\n\n");
+
+        printf("Digite o preço:\n");
+        scanf("%f", &precovendido);
+        printf("\n\n");
+
+        printf("Venda realizada com sucesso!\n");
+        printf("\n\n");
+
+
+    /* QUANDO UMA VENDA FOR REGISTRADA O PROGRAMA DEVE DIMINUIR A QUANTIDADE DE PRODUTOS NO ESTOQUE 
+    
+    CASO O PROGRAMA NÃO ENCONTRE O PRODUTO, A QUANTIDADE FOR INSUFICIENTE, OU O PREÇO ESTIVER ERRADO SEGUE AS INSTRUÇÕES:
+    
+    CASO O PROGRAMA NÃO ENCONTRE O PRODUTO DIGITADO APARECERÁ NA TELA 
+    
+    ********* PRODUTO NÃO ENCONTRADO *********
+    
+    TENTE NOVAMENTE!
+    
+    CASO A QUANTIDADE NO ESTOQUE FOR MENOR QUE A DEMANDA NECESSÁRIA PARA COMPLETAR A VENDA O PROGRAMA DEVE DIZER A QUANTIDADE NO ESTOQUE E QUE A QUANTIDADE DEMANDADA NÃO PODERÁ SER ATENDIDA, ASSIM:
+    
+    DESCULPE! MAS SÓ TEMOS X UNIDADES DESTE PRODUTO! DESEJA CONTINUAR ASSIM MESMO? SIM OU NÃO?
+    
+    MOSTRANDO A OPÇÃO PARA O USUÁRIO ESCOLHER SE DESEJA OU NÃO COMPRAR TODAS AS UNIDADES DISPONIVEIS.
+    
+    CASO O PREÇO DIGITADO ESTIVER ERRADO APARECERÁ NA TELA A SEGUINTE MENSAGEM: 
+    
+    ********************* ATENÇÃO *********************
+    
+    O PRODUTO [X] CUSTA $$ REAIS !
+    
+    FAZENDO O USUÁRIO VOLTAR E DIGITAR O PRODUTO, QUANTIDADE E PREÇO NOVAMENTE! */
+
+
+      }
+
+      if (regVendas == 2) {
+
+        printf("Digite o produto:\n");
+        scanf("%s", prodcancelar);
+        printf("\n\n");
+
+        printf("Digite a quantidade:\n");
+        scanf("%i", &qntcancelar);
+        printf("\n\n");
+
+        /*
+
+        QUANDO UM PRODUTO FOR CANCELADO O PROGRAMA DEVE AUMENTAR SUA QUANTIDADE NO ESTOQUE.
+
+        TAMBÉM NÃO É POSSIVEL CANCELAR PRODUTOS INEXISTENTES NO ESTOQUE!
+
+        */
+
+
+      }
+
+      if (regVendas == 3) {
+
+        sair1 = 1;
+      }
+
+      /* WHILE DO CASE 1 */
+
+        } while (sair1 == 0);
+
+      break;
+
+      case 2 : do {
+
+        printf("**********FECHAMENTO DE CAIXA**********");
+        printf("\n\n\n\n");
+        printf("1. Lucro\n");
+        printf("2. Observações\n");
+        printf("3. Voltar");
+
+        printf("\n\n");
+        scanf("%i", &caixa);
+        printf("\n\n");
+
+        if(caixa == 1) {
+
+            do {
+
+          printf("*************LUCRO**********");
+          printf("\n\n\n\n");
+          printf("1. Consultar Lucro\n");
+          printf("2. Consultar Dividas\n");
+          printf("3. Voltar");
+          printf("\n\n");
+          scanf("%i", &dinheiro);
+
+          printf("\n\n");
+
+          if(dinheiro == 1) {
+
+            printf("**********CONSULTA DE LUCRO**********");
+            printf("\n\n\n\n");
+
+             /* O LUCRO DEVE MOSTRAR O DINHEIRO ARRECADADO JÁ DESCONTADO AS DIVIDAS 
+             
+             CASO O COMERCIO AINDA NÃO TENHA OBTIDO LUCRO, MOSTRAR A SEGUINTE MENSAGEM:
+             
+             "Que pena! Você não obteve lucro ainda."*/
+
+          }
+
+
+        if(dinheiro == 2) {
+
+          do {
+
+          printf("**********CONSULTA DE DIVIDAS**********");
+          printf("\n\n\n\n");
+          printf("1. Geral\n");
+          printf("2. Funcionários\n");
+          printf("3. Fornecedores\n");
+          printf("4. Voltar");
+
+          printf("\n\n");
+
+          scanf("%i", &dividas);
+
+          printf("\n\n");
+
+          if (dividas == 1) {
+
+            printf("**********DIVIDAS GERAIS**********");
+            printf("\n\n\n\n");
+
+            /* NA CONSULTA DE DIVIDAS GERAIS DEVE MOSTRAR TODAS AS DIVIDAS INCLUINDO O VALOR DEVIDO AOS FORNECEDORES E O SALÁRIO DOS FUNCIONÁRIOS */
+          }
+
+          if (dividas == 2) {
+
+            printf("**********DESPESAS COM FUNCIONÁRIOS**********");
+            printf("\n\n\n\n");
+
+            /* GASTOS COM FUNCIONÁRIOS COMO SALÁRIO, VALE TRANSPORTE, EXTRAS, DECIMO TERCEIRO, PODERÁ SER CADASTRADO PELO USUÁRIO EDITOR */
+          }
+
+          if (dividas == 3) {
+
+            printf("**********DESPESAS COM FORNECEDORES**********");
+            printf("\n\n\n\n");
+
+            /* O USUÁRIO EDITOR PODERÁ CADASTRAR OS FORNECEDORES E O VALOR DEVIDO A CADA UM DELES */
+          }
+
+          if (dividas == 4) {
+
+            sair3 = 1;
+          }
+
+        } while (sair3 == 0); /* VOLTAR DA CONSULTA DE DIVIDAS*/
+        }
+
+        if (dinheiro == 3) {
+
+          sair5 = 1;
+        }
+    } while (sair5 == 0); /* VOLTAR DO LUCRO */
+
+    if (caixa == 2) {
+
+      do {
+
+      printf("**********OBSERVAÇÕES**********");
+      printf("\n\n\n\n");
+      printf("1. Adicionar Observação\n");
+      printf("2. Visualizar Observação\n");
+      printf("3. Remover Observação\n");
+      printf("4. Voltar");
+      printf("\n\n");
+      scanf("%i", &menuobs);
+      printf("\n\n");
+
+      if(menuobs == 1){
+
+        printf("Observação:\n");
+        scanf("%s", obs);
+
+        /* A OBSERVAÇÃO SERÁ SALVA E PODERÁ SER VISUALIZADA EM OUTRA PARTE DO PROGRAMA */
+      }
+
+      if (menuobs == 2) {
+
+        printf("Observações:\n\n\n\n");
+
+        /* CASO NÃO TENHAM FEITO NENHUMA OBSERVAÇÃO O PROGRAMA DEVERÁ IMPRIMIR A SEGUINTE MENSAGEM "NENHUMA OBSERVAÇÃO A SER VISUALIZADA" */
+      }
+
+      if (menuobs == 3){
+
+        printf("Selecione a observação a ser removida:\n");
+        printf("\n\n\n");
+
+        /* O USUÁRIO PODERÁ VISUALIZAR AS OBERVAÇÕES E ESCOLHER DENTRE ELAS AS QUE GOSTARIA DE EXCLUIR */
+      }
+
+      if (menuobs == 4) {
+
+        sair7 = 0;
+      }
+    } while (sair7 == 0); /* WHILE DO MENU OBS */
+    }
+
+    }
+
+    /* PARA CADA "VOLTAR" TEM UM DO WHILE :/ */
+
+    } while (sair4 == 0); /* WHILE DO CASE 2 */
+
+    break;
+
+    case 3 : do {
+
+      printf("**********ESTOQUE**********");
+      printf("\n\n\n\n");
+      printf("1. Editar Estoque\n");
+      printf("2. Visualizar Estoque\n");
+      printf("3. Editar Fornecedores\n");
+      printf("4. Visualizar Fornecedores");
+      printf("5. Voltar");
+      printf("\n\n");
+
+      scanf("%i", &menuEstq);
+
+      printf("\n\n");
+
+      if(menuEstq == 1) {
+
+        /* AQUI O USUÁRIO PODERÁ EDITAR O ESTOQUE */
+      }
+
+      if (menuEstq == 2) {
+
+        /* AQUI O USUÁRIO PODERÁ VISUALIZAR O ESTOQUE */
+
+      }
+
+      if (menuEstq == 3) {
+
+        /* AQUI O USUÁRIO PODERÁ EDITAR OS FORNECEDORES */
+
+      }
+
+      if (menuEstq == 4) {
+
+        /* AQUI O USUÁRIO PODERÁ VISUALIZAR OS FORNECEDORES */
+
+      }
+
+      if (menuEstq == 5) {
+
+        sair8 = 1;
+      }
+    } while (sair8 == 0); /*WHILE DO CASE 3 */
+
+    break;
+
+    case 4 : do {
+
+      /* EU NÃO ENTENDI O CONCEITO DAS ENCOMENDAS, SÃO AS ENCOMENDAS DO USUÁRIO EDITOR OU DA CLIENTELA DELE? */
+
+    } while (sair9 == 0); /* WHILE DO CASE 4 */
+
+    case 5: do {
+
+      /* NÃO FAÇO A MENOR IDEIA DE COMO FAZER ISSO */
+
+      printf("**********BALANÇO TEMPORAL**********");
+      printf("\n\n\n\n");
+      printf("1. Balanço Semanal\n");
+      printf("2. Balanço Mensal\n");
+      printf("3. Balanço Anual\n");
+      printf("4. Voltar");
+      printf("\n\n");
+      scanf("%i", &menutemp);
+      printf("\n\n");
+    } while (sair10 == 0); /* WHILE DO CASE 5 */
+
+ } /* FIM DO SWITCH */
+  
+ return 0; 
+ 
+}
